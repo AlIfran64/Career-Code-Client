@@ -1,6 +1,25 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { NavLink } from 'react-router';
+import { AuthContext } from '../../Context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+
+  const { user, logout } = useContext(AuthContext);
+
+  const links = <>
+    <NavLink to={'/'}>Home</NavLink>
+  </>
+
+  // Handle logout
+  const handleLogout = () => {
+    logout()
+      .then(() => {
+        toast.success("Log out Successful!")
+      }).catch((error) => {
+        toast.error(error);
+      });
+  }
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -11,37 +30,31 @@ const Navbar = () => {
           <ul
             tabIndex={0}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-            <li><a>Item 1</a></li>
-            <li>
-              <a>Parent</a>
-              <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </li>
-            <li><a>Item 3</a></li>
+            {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <div className='flex justify-start items-center gap-2'>
+          <img className='w-12 h-12' src="../../../src/Assets/images/logo.png" alt="logo" />
+          <h1 className="text-2xl font-bold text-start">Career Code</h1>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
-          <li><a>Item 1</a></li>
-          <li>
-            <details>
-              <summary>Parent</summary>
-              <ul className="p-2">
-                <li><a>Submenu 1</a></li>
-                <li><a>Submenu 2</a></li>
-              </ul>
-            </details>
-          </li>
-          <li><a>Item 3</a></li>
+          {links}
         </ul>
       </div>
-      <div className="navbar-end">
-        <a className="btn">Button</a>
-      </div>
+      {
+        user ?
+          <div className="navbar-end gap-3">
+            <button onClick={handleLogout} className="btn bg-[#74D4DE]" to={'/register'}>Logout</button>
+          </div>
+          :
+          <div className="navbar-end gap-3">
+            <NavLink className="btn" to={'/login'}>Login</NavLink>
+            <NavLink className="btn bg-[#74D4DE]" to={'/register'}>Register</NavLink>
+          </div>
+
+      }
     </div>
   );
 };
