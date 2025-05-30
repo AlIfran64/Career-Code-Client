@@ -1,9 +1,13 @@
 import React from 'react';
+import Banner from '../../Components/Banner/Banner';
+import BrowseCategory from '../../Components/BrowseCategory/BrowseCategory';
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
+      <Banner></Banner>
+
+      <BrowseCategory></BrowseCategory>
     </div>
   );
 };

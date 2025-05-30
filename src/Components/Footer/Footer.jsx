@@ -3,10 +3,10 @@ import React from 'react';
 const Footer = () => {
   return (
     <footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-20">
-      <aside>
-        <img className='w-15 h-15' src="../../../src/Assets/images/logo.png" alt="logo" />
+      <aside className='flex justify-start items-center gap-1'>
+        <img className='w-20 h-20' src="../../../src/Assets/images/logo.png" alt="logo" />
         <p className='text-2xl font-bold'>
-          Career Code.
+          Career Code. <br /> <span className='text-lg font-normal'>Bridge the Gap Between Skills and Success</span>
         </p>
       </aside>
       <nav>
