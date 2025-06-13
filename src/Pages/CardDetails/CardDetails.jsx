@@ -1,10 +1,12 @@
 import React from 'react';
-import { useLoaderData } from 'react-router';
+import { Link, useLoaderData } from 'react-router';
 import { CiLocationOn } from 'react-icons/ci';
 import { FaBriefcase, FaMoneyBillWave, FaEnvelope, FaUserTie, FaClock } from 'react-icons/fa';
 
 const CardDetails = () => {
   const data = useLoaderData();
+  console.log(data);
+
 
   // Destructure
   const {
@@ -108,9 +110,11 @@ const CardDetails = () => {
 
       {/* Apply Button */}
       <div className="text-right mt-6">
-        <button className="bg-black text-white px-6 py-2 rounded-md transition duration-200">
-          Apply Now
-        </button>
+        <Link to={`/jobApply/${_id}`}>
+          <button className="bg-black text-white px-6 py-2 rounded-md transition duration-200">
+            Apply Now
+          </button>
+        </Link>
       </div>
     </div>
   );

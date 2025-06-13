@@ -8,7 +8,21 @@ const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
 
   const links = <>
-    <NavLink to={'/'}>Home</NavLink>
+    <NavLink className={({ isActive }) => isActive ? "border-b-2 mx-4" : "mx-4"} to={'/'}>Home</NavLink>
+
+
+    {/* For applicants */}
+    {
+      user && <NavLink className={({ isActive }) => isActive ? "border-b-2 mx-4" : "mx-4"} to={'/myApplications'}>My Applications</NavLink>
+    }
+
+    {/* For recruiters. Check roles as well */}
+    {
+      user && <>
+        <NavLink className={({ isActive }) => isActive ? "border-b-2 mx-4" : "mx-4"} to={'/addJob'}>Add Job</NavLink>
+        <NavLink className={({ isActive }) => isActive ? "border-b-2 mx-4" : "mx-4"} to={'/myPostedJobs'}>My Posted Jobs</NavLink>
+      </>
+    }
   </>
 
   // Handle logout

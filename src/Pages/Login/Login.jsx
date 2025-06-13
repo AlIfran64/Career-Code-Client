@@ -3,10 +3,14 @@ import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/AuthContext';
 import loginLottie from '../../../src/Assets/Animations/loginAnimation.json'
 import Lottie from 'lottie-react';
+import { useLocation, useNavigate } from 'react-router';
 
 const Login = () => {
 
   const { login, googleLogin } = useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state || '/';
 
   // Handle log in
   const handleLogin = (e) => {
@@ -28,7 +32,8 @@ const Login = () => {
         const user = userCredential.user;
         console.log(user);
 
-        toast.success("Successfully Logged In!")
+        toast.success("Successfully Logged In!");
+        navigate(from);
         // ...
       })
       .catch((error) => {
@@ -43,7 +48,10 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((result) => {
+        console.log(result);
+
         toast.success("Successfully Logged in")
+        navigate(from);
       }).catch((error) => {
         // Handle Errors here.
         const errorMessage = error.message;
@@ -67,7 +75,7 @@ const Login = () => {
               <label className="label">Password</label>
               <input type="password" name='password' className="input w-full" placeholder="Password" />
               <div><a className="link link-hover">Forgot password?</a></div>
-              <button className="btn btn-neutral mt-4">Register</button>
+              <button className="btn btn-neutral mt-4">Log in</button>
             </form>
 
             <div className="divider">OR</div>
