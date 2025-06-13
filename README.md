@@ -1,4 +1,4 @@
-# 💼 CareerCode — Job Portal Website
+# 💼 CareerCode - A Job Portal Website
 CareerCode is a full-stack web application that empowers users to build their professional portfolios, access career-prep resources, and manage job-related content seamlessly. Designed with scalability and user experience in mind, CareerCode integrates secure authentication, clean UI design, and robust backend functionality.
 
 ---
@@ -34,6 +34,8 @@ CareerCode is a full-stack web application that empowers users to build their pr
 - [Node.js](https://nodejs.org/) – Server-side JavaScript runtime
 - [Express.js](https://expressjs.com/) – Web framework for APIs
 - [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) – Cloud-hosted NoSQL DB
+- [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) – Secure token generation for user sessions
+
 
 ---
 
@@ -41,8 +43,21 @@ CareerCode is a full-stack web application that empowers users to build their pr
 
 > 📌 Make sure you have **Node.js**, **npm**, and **MongoDB Atlas** credentials ready.
 
-### 1. Clone the Repository
+---
+
+### 🔹 Frontend Setup
 
 ```bash
-git clone https://github.com/yourusername/career-code.git
-cd career-code
+cd client
+npm install
+npm run dev
+```
+---
+
+### 🔹 Backend Setup
+
+```bash
+cd server
+npm install
+nodemon index.js
+```
