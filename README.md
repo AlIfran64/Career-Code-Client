@@ -28,7 +28,7 @@ CareerCode is a full-stack web application that empowers users to build their pr
 ### Frontend
 - [React.js](https://reactjs.org/) – Component-based UI
 - [Tailwind CSS](https://tailwindcss.com/) – Utility-first CSS framework
-- [Firebase Authentication](https://firebase.google.com/products/auth)
+- [Firebase Authentication](https://firebase.google.com/products/auth) - Authentication and hosting
 
 ### Backend
 - [Node.js](https://nodejs.org/) – Server-side JavaScript runtime
