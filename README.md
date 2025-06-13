@@ -3,9 +3,9 @@ CareerCode is a full-stack web application that empowers users to build their pr
 
 ---
 
-## 🌐 Live Demo
+## 🔗 Live Site
 
-🔗 [https://career-code-694c4.web.app](https://career-code-694c4.web.app)
+- 🌐 [https://career-code-694c4.web.app](https://career-code-694c4.web.app)
 
 ---
 
